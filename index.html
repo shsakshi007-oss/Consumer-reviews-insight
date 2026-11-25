@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Concealer Review Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap">
+<style>
+/* VOICE work: an independent analyst's report, read one step at a time
+   IDEA a guided walkthrough: six short pages, each with one finding, details opened on request
+   PICTURE each page's chart: totals, problem bars by rating, theme table, shade glimpse, fix cards
+   COLOUR white and black like the brand's own site, one hot pink accent; dark theme is the same at night
+   TYPE Nunito Sans throughout, 800 for headings
+   LAYOUT step bar at top, one page in view, previous and next at the foot; phone stacks everything */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#111111);--ink:light-dark(#111111,#f4f4f4);--soft:light-dark(#555555,#b5b5b5);--line:light-dark(#e6e6e6,#2e2e2e);--panel:light-dark(#fafafa,#1a1a1a);--pink:light-dark(#fc2679,#ff4f93);--pinkt:light-dark(#c2185b,#ff7aae);--wash:light-dark(#fff0f6,#2a1520);--bar:light-dark(#cfcfcf,#4a4a4a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Nunito Sans",Arial,sans-serif;overflow-x:clip}
+h1,h2,h3{line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0;font-weight:800}
+p{margin:0}
+a{color:var(--pinkt)}
+.band{padding-block:clamp(28px,4vw,60px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.bar-top{background:var(--ink);color:var(--bg);padding:10px max(5vw,16px);font-size:14px}
+.bar-top .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
+.bar-top nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+.bar-top a{color:var(--bg);text-decoration:none;font-weight:600}
+.bar-top a:hover,.bar-top a:focus-visible{text-decoration:underline}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,56px);align-items:start}
+.prod{color:var(--soft);font-size:15px;margin-bottom:12px}
+h1{font-size:clamp(32px,4.2vw,48px)}
+h1 em{font-style:normal;color:var(--pinkt)}
+.lede{color:var(--soft);font-size:17px;max-width:58ch;margin-top:16px}
+.ctx{margin-top:18px;padding:12px 14px;background:var(--wash);border-radius:10px;font-size:15px}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px;border-top:1px solid var(--line)}
+.figs div{padding:12px 10px 0 0}
+.figs b{display:block;font-size:clamp(24px,2.6vw,30px);font-weight:800;line-height:1.1;white-space:nowrap}
+.figs span{font-size:13px;color:var(--soft)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,2.2vw,26px)}
+.panel h2{font-size:21px}
+.panel .sub{color:var(--soft);font-size:14px;margin:4px 0 14px}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.seg button,.chips button{font:600 14px "Nunito Sans",Arial,sans-serif;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed=true],.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg button:focus-visible,.chips button:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.rows{display:grid;gap:2px}
+.r{display:grid;grid-template-columns:minmax(0,11em) minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.r .lbl{font-size:15px;line-height:1.25}
+.r .lbl small{display:block;color:var(--soft);font-size:13px}
+.track{height:14px;background:var(--line);border-radius:7px;overflow:hidden}
+.fill{display:block;height:100%;background:var(--pink);border-radius:7px;transition:width .5s ease}
+.fill.hi{background:var(--pink)}
+.val{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:15px}
+.val b{font-weight:800}
+.val small{display:block;color:var(--soft);font-size:13px}
+.note{color:var(--soft);font-size:13px;margin-top:12px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(16px,4vw,56px);align-items:end;margin-bottom:24px}
+.sec-head h2{font-size:clamp(26px,3vw,36px)}
+.sec-head p{color:var(--soft)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chips .sw{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.15)}
+.warn{color:var(--pinkt);font-size:13px;font-weight:600;margin-bottom:8px;min-height:1.2em}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-weight:600;color:var(--soft);font-size:14px;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mini{display:block;height:10px;border-radius:5px;background:var(--pink);min-width:2px}
+.plays{margin:0;padding-left:20px;display:grid;gap:8px}
+.reel,.academy{border-radius:16px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;min-height:100%}
+.reel{background:linear-gradient(165deg,#2a1520,#fc2679)}
+.academy{background:#111}
+.reel-tag{align-self:flex-start;font-size:11px;font-weight:800;background:#fff;color:#111;border-radius:999px;padding:3px 9px}
+.reel-tag.dark{background:#fc2679;color:#fff}
+.hook{font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.05}
+.hook2{font-size:14px;font-weight:700}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
+.ba div{border-radius:10px;padding:10px;min-height:78px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;line-height:1.2}
+.ba small{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.b4{background:repeating-linear-gradient(135deg,#c99a70 0 6px,#b98a62 6px 9px);color:#111}
+.af{background:#f3d9c0;color:#111}
+.reel-cap{font-size:12px;opacity:.9;margin-top:auto}
+.ac-t{font-size:clamp(20px,2.3vw,26px);font-weight:800;line-height:1.1}
+.ac-s{font-size:13px;color:#ccc}
+.kit{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center;margin-top:4px}
+.kit-box{height:76px;border-radius:10px;background:#fff0f6;display:flex;align-items:flex-end;justify-content:center;gap:5px;padding-bottom:10px}
+.tube-mini{width:12px;height:46px;border-radius:4px;background:linear-gradient(#111 0 30%,#d8b08a 30%)}
+.tube-mini.b{height:38px;background:linear-gradient(#111 0 30%,#c99a70 30%)}.tube-mini.c{height:42px;background:linear-gradient(#111 0 30%,#ecd0b4 30%)}
+.kit ul{margin:0;padding-left:16px;font-size:12px;display:grid;gap:4px}
+.fixlist{display:grid;gap:20px;margin-top:24px}
+.fix{border:1px solid var(--line);border-radius:16px;padding:clamp(16px,2.4vw,28px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(16px,3vw,40px);align-items:start}
+.fix:last-child,.fix-wide{grid-template-columns:minmax(0,1fr)}
+.fix-wide .fix-txt{max-width:75ch}
+.fix-wide .mock-pair{max-width:900px;width:100%;margin:0 auto;align-items:start}
+.fix-txt{display:flex;flex-direction:column;gap:10px}
+.fix h3{font-size:clamp(20px,2.2vw,26px)}
+.fix-n{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pinkt)}
+.mock{margin:0}
+.mock figcaption{font-size:12px;color:var(--soft);margin-top:8px;text-align:center}
+.mock-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.phone{max-width:320px;margin:0 auto;border:8px solid #111;border-radius:30px;background:#fff;color:#111;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.ph-top{height:20px;display:flex;justify-content:center;align-items:center}.ph-top span{width:60px;height:6px;border-radius:3px;background:#111}
+.ph-body{padding:6px 14px 16px;font-size:12px}
+.pd-hero{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;background:#fff0f6;border-radius:12px;padding:10px}
+.tube{width:46px;height:auto}
+.pd-name{font-weight:800;font-size:14px;line-height:1.2}.pd-sub{color:#555;margin:2px 0 8px}
+.pd-btn{display:inline-block;background:#fc2679;color:#fff;font-weight:800;border-radius:999px;padding:6px 10px;font-size:11px}
+.pd-h{font-weight:800;margin:12px 0 6px;font-size:12px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;text-align:center}
+.swatches i{display:block;width:30px;height:30px;border-radius:50%;margin:0 auto 3px;border:1px solid rgba(0,0,0,.1)}
+.swatches b{display:block;font-size:11px}.swatches small{display:block;font-size:8.5px;color:#555;line-height:1.15}
+.skin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.skin span{position:relative;height:58px;border-radius:10px;background:var(--s);display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:10px;font-weight:800;color:#111}
+.skin span::before{content:"";position:absolute;top:12px;left:22%;width:56%;height:16px;border-radius:10px;background:var(--p);box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.tips{margin:0;padding-left:16px;display:grid;gap:3px}
+.feed{border:1px solid var(--line);border-radius:14px;background:#fff;color:#111;padding:10px;font-size:12px;}
+.feed-head{display:flex;gap:8px;align-items:center;margin-bottom:8px}.feed-head small{display:block;color:#555;font-size:11px}
+.av{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-weight:800;font-size:12px;flex:none}
+.av-brand{background:#fc2679;color:#fff}.av-cr{background:#f3d9c0;color:#111;border:2px solid #fc2679}
+.paid{margin-left:auto;font-size:10px;font-weight:800;background:#f2f2f2;border-radius:999px;padding:3px 7px;white-space:nowrap}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.tile{aspect-ratio:4/5;border-radius:8px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font-size:clamp(10px,1.4vw,13px);line-height:1.2;overflow:hidden}
+.tile b{font-weight:800}
+.t1{background:#fff0f6;align-items:center;text-align:center}.t1 .tube{width:30%;margin:auto}
+.t2{background:#111;color:#fff}.t2{justify-content:center}.t2 ol{margin:6px 0 0;padding-left:14px;font-size:clamp(9px,1.1vw,11px)}
+.t3{background:#f3d9c0;gap:3px}.t3 div{display:flex;align-items:center;gap:4px}.t3{justify-content:center}.t3 small{font-size:clamp(9px,1.1vw,11px);width:3.6em}.t3 i{flex:1;height:8px;border-radius:4px;background:#d8b08a}
+.feed-cap{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.chip{font-size:10px;font-weight:700;border:1px solid #ddd;border-radius:999px;padding:2px 8px}
+.video{position:relative;aspect-ratio:4/5;max-height:260px;width:100%;border-radius:10px;background:linear-gradient(160deg,#f3d9c0,#c99a70);display:flex;flex-direction:column;justify-content:flex-end;padding:10px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.video b{font-size:13px}.video small{font-size:10px}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;font-size:16px;text-shadow:none}
+.cmts{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:3px;font-size:11px}
+@media(max-width:860px){.fix{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.mock-pair{grid-template-columns:minmax(0,1fr)}}
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.act{border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.act h3{font-size:20px}
+.meta{font-size:14px;color:var(--soft)}
+.ev{font-size:14px;background:var(--panel);border-radius:8px;padding:8px 10px}
+.prod-link{margin-top:10px;font-weight:700}.prod-link a{color:var(--pinkt)}
+.kpi{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-weight:800;color:var(--pinkt)}
+ol.steps{margin:0;padding-left:22px;display:grid;gap:10px}
+.caveat{color:var(--soft);font-size:14px;margin-top:14px}
+.src{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.src div{border-top:2px solid var(--ink);padding-top:10px;font-size:15px}
+.src b{display:block}
+footer{background:var(--ink);color:var(--bg);font-size:15px}
+footer a{color:var(--bg)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media(max-width:960px){.acts,.src{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:860px){.hero,.sec-head,.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}.r{grid-template-columns:minmax(0,7.5em) minmax(0,1fr) auto;gap:8px}table{font-size:13px}th,td{padding:8px 4px}}
+.steps-nav a em{font-style:normal}
+.steps-now{display:none}
+.steps-nav ol{scrollbar-width:none;-webkit-overflow-scrolling:touch}.steps-nav ol::-webkit-scrollbar{display:none}
+.bar-top,.steps-nav,.band{padding-left:max(5vw,16px,env(safe-area-inset-left));padding-right:max(5vw,16px,env(safe-area-inset-right))}
+@media(max-width:700px){
+.bar-top{font-size:12px;padding-top:8px;padding-bottom:8px;text-align:center}
+.bar-top .wrap{justify-content:center}
+.bt-prod{display:none}
+.steps-nav{padding-top:8px;padding-bottom:8px}
+.steps-nav ol{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;overflow:visible}
+.steps-nav li{display:flex;justify-content:center}
+.steps-nav a{justify-content:center;width:100%;max-width:56px;min-height:44px;padding:0;border-radius:12px}
+.steps-nav a em{display:none}
+.steps-nav a span{width:30px;height:30px;font-size:14px;font-weight:800}
+.steps-now{display:block;text-align:center;font-weight:800;font-size:15px;margin-top:6px}
+.pager a{flex:1 1 100%;justify-content:center}
+.pager a.next{order:-1;margin-left:0}
+h1{font-size:clamp(26px,7.5vw,34px)}
+}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+.steps-nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px max(5vw,16px)}
+.steps-nav ol{list-style:none;margin:0 auto;padding:0;max-width:1240px;display:flex;gap:6px;overflow-x:auto}
+.steps-nav a{display:flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:var(--soft);font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px;min-height:40px}
+.steps-nav a span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--line);font-size:12px}
+.steps-nav a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.steps-nav a[aria-current=page] span{border-color:var(--bg)}
+.steps-nav a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.page[hidden]{display:none}
+.page{min-height:60vh}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+.pager a{display:inline-flex;align-items:center;min-height:48px;padding:10px 20px;border-radius:999px;font-weight:800;text-decoration:none;border:1px solid var(--ink);color:var(--ink)}
+.pager a.next{background:var(--pink);border-color:var(--pink);color:#fff;margin-left:auto}
+.pager a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.big div{border:1px solid var(--line);border-radius:14px;padding:20px}
+.big b{display:block;font-size:clamp(34px,4vw,52px);font-weight:800;line-height:1}
+.big b.pk{color:var(--pinkt)}
+.big span{display:block;color:var(--soft);font-size:15px;margin-top:8px}
+.glimpse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:24px;align-items:center}
+.glimpse .stat{font-size:clamp(44px,6vw,72px);font-weight:800;line-height:1;color:var(--pinkt)}
+details.more{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+details.more>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-weight:800;min-height:56px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"+";font-size:24px;line-height:1;color:var(--pinkt)}
+details.more[open]>summary::after{content:"−"}
+details.more>summary:focus-visible{outline:3px solid var(--pink);outline-offset:2px;border-radius:14px}
+details.more .inner{padding:0 20px 20px}
+.lead2{color:var(--soft);font-size:17px;max-width:62ch;margin-top:12px}
+.page h1{font-size:clamp(30px,3.8vw,44px)}
+.kicker{color:var(--pinkt);font-weight:800;font-size:15px;margin-bottom:10px}
+@media(max-width:860px){.glimpse,.big{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="bar-top"><div class="wrap"><span>Independent study · Not affiliated with Swiss Beauty or Nykaa</span><span class="bt-prod">Swiss Beauty Full Coverage Liquid Concealer · Nykaa reviews</span></div></div>
+<nav class="steps-nav" aria-label="Report pages"><ol id="stepNav"></ol><p class="steps-now" id="stepNow" aria-live="polite"></p></nav>
+<main>
+
+<section class="page band" id="overview" data-title="Reviews analysed"><div class="wrap">
+<p class="kicker">Step 1 · What was analysed</p>
+<h1>716 low-rated reviews, analysed with Python and NLP</h1>
+<p class="lead2">I collected every Nykaa review I could for <b>Swiss Beauty Full Coverage Liquid Concealer</b> rated 1 to 3 stars, to find out what makes buyers unhappy and what the brand can fix.</p>
+<p class="prod-link"><a href="https://www.nykaa.com/swiss-beauty-liquid-concealer/p/419682?productId=419682&amp;pps=1&amp;skuId=419677" target="_blank" rel="noopener">See the product on Nykaa ↗</a></p>
+<div class="big">
+<div><b>716</b><span>reviews rated 1–3 stars analysed</span></div>
+<div><b>235</b><span>rated 1–2 stars (clearly unhappy)</span></div>
+<div><b>481</b><span>rated 3 stars (mixed)</span></div>
+<div><b>13</b><span>shades reviewed; most reviews for 02 Sand Sable (202)</span></div>
+<div><b>13</b><span>complaint themes tagged</span></div>
+<div><b>100</b><span>reviews checked by hand for accuracy</span></div>
+</div>
+<p class="ctx">For context, Nykaa showed this product at 4.4 out of 5 from 848,218 verified ratings on 22 Nov 2026. Nykaa listed 895 reviews rated 1–3 stars that day; 716 were collected and analysed. This study looks only at unhappy and mixed reviews.</p>
+</div></section>
+
+<section class="page band" id="problems" data-title="Main problems" hidden><div class="wrap">
+<p class="kicker">Step 2 · The main problem</p>
+<div class="hero">
+<div>
+<h1>26.5% of low-rated reviews are about <em>shade fit</em>, rising to 36.6% among 1–2 star reviews</h1>
+<p class="lead2">190 of 716 reviews mention a shade that doesn’t suit, or a missing shade. How it wears comes next (119 reviews), then coverage falling short of the “Full Coverage” claim (116). Price is almost never the problem: 13 complaints against 57 mentions of good value.</p>
+</div>
+<div class="panel">
+<h2>What low-rated reviews complain about</h2>
+<p class="sub">Share of reviews mentioning each problem. Pick a star rating to compare.</p>
+<div class="seg" role="group" aria-label="Star rating">
+<button type="button" data-seg="all" aria-pressed="true">All 1–3 stars (716)</button>
+<button type="button" data-seg="low" aria-pressed="false">1–2 stars (235)</button>
+<button type="button" data-seg="mid" aria-pressed="false">3 stars (481)</button>
+</div>
+<div class="rows" id="famRows"></div>
+<p class="note">A review can mention several problems, so shares don’t add up to 100%.</p>
+</div>
+</div>
+</div></section>
+
+<section class="page band" id="method" data-title="Method" hidden><div class="wrap">
+<p class="kicker">Step 3 · How the numbers were produced</p>
+<h1>Built with Python and NLP, tested for accuracy</h1>
+<div class="two" style="margin-top:24px">
+<ol class="steps">
+<li>Collected the 1–3 star reviews from Nykaa’s public review pages with Python, keeping rating, shade, title, text and date, and removed duplicates.</li>
+<li>Counted repeated two- and three-word phrases to see what buyers actually write, then grouped them into 13 complaint themes.</li>
+<li>Tagged each review with keyword rules that handle negation, so “not good coverage” is a complaint and “good coverage” is praise.</li>
+<li>Clustered the reviews (TF-IDF and K-means) to find wording the rules missed. Untagged reviews fell from 336 to 252, most of them praise-only 3-star reviews.</li>
+<li>Compared the tags with 100 reviews labelled by hand.</li>
+</ol>
+<div>
+<div class="panel"><h2>How accurate is the model?</h2><p class="sub">Python tags checked against 100 reviews labelled by hand. Bar = F1 score (balance of precision and recall), out of 100%.</p><div class="rows"><div class="r"><span class="lbl">Shade fit<small>18 reviews in sample</small></span><span class="track"><span class="fill" style="width:68%"></span></span><span class="val"><b>68%</b><small>P 65% · R 72%</small></span></div><div class="r"><span class="lbl">Coverage<small>15 reviews in sample</small></span><span class="track"><span class="fill" style="width:73%"></span></span><span class="val"><b>73%</b><small>P 73% · R 73%</small></span></div><div class="r"><span class="lbl">How it wears<small>18 reviews in sample</small></span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val"><b>78%</b><small>P 92% · R 67%</small></span></div></div><p class="note">Precision (P): of the reviews tagged with a problem, the share that really mention it. Recall (R): of the reviews that mention it, the share tagged. F1 = 2·P·R ÷ (P + R). Small samples, so treat these as ±10 points. Shares are of 1–3 star reviews, not all buyers.</p></div>
+</div>
+</div>
+</div></section>
+
+<section class="page band" id="themes" data-title="All 13 themes" hidden><div class="wrap">
+<p class="kicker">Step 4 · Every complaint theme</p>
+<h1>All 13 complaint themes, with exact counts</h1>
+<p class="lead2">Average rating shows how harsh reviews with that theme are. Shade mismatch and “no shade for my skin tone” average 2.31 stars, among the lowest.</p>
+<div class="scroll" style="margin-top:20px"><table>
+<thead><tr><th>Theme</th><th class="n">Reviews</th><th class="n">Share of 716</th><th class="n">Avg rating</th><th style="width:28%">Share</th></tr></thead>
+<tbody id="themeTable"></tbody>
+</table></div>
+<details class="more"><summary>What unhappy buyers still praise</summary><div class="inner">
+<div class="scroll"><table>
+<thead><tr><th>Mention</th><th class="n">Reviews</th><th class="n">Share of 716</th><th style="width:28%">Share</th></tr></thead>
+<tbody id="strTable"></tbody>
+</table></div>
+<p class="caveat">“Gives shade advice” counts reviewers telling other buyers which shade to pick, such as “better for dusky skin”.</p>
+</div></details>
+</div></section>
+
+<section class="page band" id="shades" data-title="By shade" hidden><div class="wrap">
+<p class="kicker">Step 5 · Shade by shade</p>
+<h1>One shade stands out</h1>
+<div class="panel glimpse" style="margin-top:24px">
+<div><p class="stat">48%</p><p class="lead2" style="margin-top:8px">of the 137 reviews of 01 Warm Sand mention a shade mismatch, three times the rate for 02 Sand Sable, the most-reviewed shade (16% of 202).</p></div>
+<div class="rows" id="glimpseRows"></div>
+</div>
+<details class="more"><summary>Explore one shade at a time</summary><div class="inner">
+<p class="note" style="margin-bottom:12px">Pick a shade to see the share of its reviews mentioning each problem.</p>
+<div class="chips" id="shadeChips" role="group" aria-label="Shade"></div>
+<p class="warn" id="shadeWarn"></p>
+<div class="rows" id="shadeRows"></div>
+</div></details>
+<details class="more"><summary>Explore one problem across every shade</summary><div class="inner">
+<p class="note" style="margin-bottom:12px">Pick a problem to see the share of each shade’s reviews mentioning it.</p>
+<div class="chips" id="themeChips" role="group" aria-label="Problem"></div>
+<div class="rows" id="themeRows"></div>
+</div></details>
+<p class="note">Shades with fewer than 20 reviews are marked “small sample”. Swatch colours are approximate. One review had no shade recorded.</p>
+</div></section>
+
+<section class="page band" id="fixes" data-title="Fixes" hidden><div class="wrap">
+<p class="kicker">Step 6 · What the brand can do</p>
+<h1>Three fixes, cheapest first</h1>
+<p class="lead2">Each targets one problem family. The pink line on each card is the goal: the share of 1–3 star reviews that mention that problem today, and where it should fall in new reviews within two quarters. Effort levels and targets are my estimates.</p>
+<div class="fixlist">
+<article class="fix">
+<div class="fix-txt">
+<p class="fix-n">Fix 1</p><h3>Fix the Nykaa listing</h3><p class="meta">Owner: e-commerce · Effort: low</p>
+<p>Shades in light-to-dark order with real-skin swatches, a three-question shade finder, and how-to-apply and skin-type tips on the product page.</p>
+<p class="ev">Evidence: shade fit in 190 of 716 reviews; 53 reviewers give each other shade advice.</p>
+<p class="kpi">Goal: reviews citing shade fit, 26.5% today → under 15%</p>
+</div>
+<figure class="mock">
+<div class="phone"><div class="ph-top"><span></span></div>
+<div class="ph-body">
+<div class="pd-hero"><svg class="tube" viewBox="0 0 60 150" aria-hidden="true"><rect x="22" y="4" width="16" height="44" rx="5" fill="#111"/><rect x="14" y="46" width="32" height="98" rx="10" fill="#f3d9c0" stroke="#111" stroke-width="2"/><rect x="14" y="88" width="32" height="56" rx="10" fill="#d8b08a"/><text x="30" y="72" text-anchor="middle" font-size="7" font-weight="800" fill="#111">FULL</text><text x="30" y="81" text-anchor="middle" font-size="6" fill="#111">COVERAGE</text></svg><div><p class="pd-name">Full Coverage Liquid Concealer</p><p class="pd-sub">13 shades · Matte finish</p><span class="pd-btn">Find my shade in 3 questions →</span></div></div>
+<p class="pd-h">Shades, light to dark</p>
+<ul class="swatches"><li><i style="background:#ecd0b4"></i><b>06</b><small>Clair Moyen</small></li><li><i style="background:#e2bf98"></i><b>03</b><small>Light Moyen</small></li><li><i style="background:#d8b08a"></i><b>02</b><small>Sand Sable</small></li><li><i style="background:#d2a57c"></i><b>04</b><small>Medium Beige</small></li><li><i style="background:#c99a70"></i><b>05</b><small>Medium Moyen</small></li><li><i style="background:#c09068"></i><b>01</b><small>Warm Sand</small></li></ul>
+<p class="pd-h">On real skin</p>
+<div class="skin"><span style="--s:#f1d3b8;--p:#e2bf98">Fair</span><span style="--s:#d9ac84;--p:#d2a57c">Medium</span><span style="--s:#a8744c;--p:#c09068">Tan</span></div>
+<p class="pd-h">Before you buy</p>
+<ul class="tips"><li><b>Oily skin:</b> set with loose powder</li><li><b>Under-eyes:</b> one thin layer, tap, don't rub</li><li><b>Between shades?</b> Pick the lighter one</li></ul>
+</div></div>
+<figcaption>Concept mockup of an improved product page. Shade colours are illustrative.</figcaption>
+</figure>
+</article>
+
+<article class="fix fix-wide">
+<div class="fix-txt">
+<p class="fix-n">Fix 2</p><h3>An education campaign: “You might be using it wrong”</h3><p class="meta">Owner: brand, social and partnerships · Effort: medium</p>
+<p>Coverage is praised in 90 reviews and criticised in 116, so the same formula works for some buyers and not others. Part of that gap is likely technique. The campaign teaches it in the buyers’ own words, through people they already trust to teach makeup. Shade and oxidation problems need Fix 1 and Fix 3 instead.</p>
+<ol class="plays">
+<li><b>Problem-first reels.</b> Each reel opens with a complaint buyers actually write (cakey, creasing under the eyes, not enough coverage), then a creator fixes it on camera with this concealer. The brand page reposts them as one series.</li>
+<li><b>Makeup academies.</b> Partner with makeup academies on a masterclass and put the concealer in student kits. Students learn to use it properly, then use it on clients, including brides and their families.</li>
+<li><b>Academy reels.</b> Academies post class and bridal reels all the time. A tagged product in those reels is a professional endorsement, not an ad.</li>
+</ol>
+<p class="ev">Evidence: coverage short of the claim in 116 reviews, yet good coverage praised in 90. Creasing, caking and blending come up in 91 reviews.</p>
+<p class="kpi">Goal: reviews citing low coverage, 16.2% today → under 10%</p>
+</div>
+<div class="mock-pair">
+<figure class="mock">
+<div class="reel"><span class="reel-tag">Reel · problem first</span>
+<p class="hook">“Cakey by noon?”</p><p class="hook2">You’re probably applying it like this ❌</p>
+<div class="ba"><div class="b4"><small>Before</small><b>Rubbed in, thick layer</b></div><div class="af"><small>After</small><b>Dot, tap, thin layers, set</b></div></div>
+<p class="reel-cap"><b>Creator</b> · Part 2 of “Using it right” · reposted by the brand page</p></div>
+<figcaption>Concept: the hook uses the words reviewers use most.</figcaption>
+</figure>
+<figure class="mock">
+<div class="academy"><span class="reel-tag dark">Academy masterclass</span>
+<p class="ac-t">Full coverage without the cake</p><p class="ac-s">Live session for makeup students · Delhi NCR</p>
+<div class="kit"><div class="kit-box"><span class="tube-mini"></span><span class="tube-mini b"></span><span class="tube-mini c"></span></div><ul><li>Concealer in every student kit</li><li>Shade-matching on real clients</li><li>Students tag the product in class and bridal reels</li></ul></div>
+<p class="reel-cap">Track with an academy code and the tags in reels</p></div>
+<figcaption>Concept: an academy partnership. Names left out on purpose.</figcaption>
+</figure>
+</div>
+</article>
+
+<article class="fix">
+<div class="fix-txt">
+<p class="fix-n">Fix 3</p><h3>Test the formula</h3><p class="meta">Owner: R&amp;D · Effort: high</p>
+<p>Lab-test the oxidation and cakiness reports. Reformulate only if tests confirm them, since some may come from how it’s applied.</p>
+<p class="ev">Evidence: how it wears (cakey, creasing, blending, oxidation, texture, lasting) in 119 reviews.</p>
+<p class="kpi">Goal: reviews citing wear issues, 16.6% today → under 12%</p>
+</div>
+</article>
+</div>
+</div></section>
+
+<div class="band" style="padding-top:0"><div class="wrap"><nav class="pager" id="pager" aria-label="Previous and next page"></nav></div></div>
+</main>
+
+<footer class="band"><div class="wrap">
+<p><b>Sakshi Sharma</b> · IIM Kashipur MBA, Business Analytics · <a href="https://www.linkedin.com/in/sakshi-sharma-b10b53172">LinkedIn</a> · shsakshi007@gmail.com</p>
+<p>Independent analysis · Data collected Nov 2026</p>
+</div></footer>
+<script>
+{
+const N={all:716,low:235,mid:481};
+const fam=[
+ {n:"Shade fit",s:"shade mismatch or missing shade",c:{all:190,low:86,mid:104}},
+ {n:"How it wears",s:"cakey, creasing, blending, oxidation, texture, lasting",c:{all:119,low:42,mid:77}},
+ {n:"Coverage below claim",s:"not the full coverage promised",c:{all:116,low:37,mid:79}},
+ {n:"Quality and packaging",s:"leaks, damage, skin reactions",c:{all:39,low:10,mid:29}},
+ {n:"Value for money",s:"not worth the price",c:{all:13,low:8,mid:5}}];
+const themes=[
+ ["shade_mismatch","Shade mismatch",176,2.31],["low_coverage","Coverage below claim",116,2.56],["vague","Unhappy, no reason given",71,2.61],
+ ["dry_cakey","Dry or cakey",40,2.45],["limited_shades","No shade for my skin tone",29,2.31],["creasing","Creasing",28,2.46],
+ ["hard_to_blend","Hard to blend",23,2.35],["packaging_quality","Packaging or quality",22,2.82],["oxidation","Oxidation (turns darker)",21,2.52],
+ ["texture","Texture",18,2.78],["skin_reaction","Skin reaction",17,2.41],["doesnt_last","Doesn’t last",16,2.56],["poor_value","Not worth the price",13,2.00]];
+const strengths=[["Good coverage",90],["Good price or value",57],["Gives shade advice",53],["Blends well",29],["Long lasting",9]];
+const cols=["shade_mismatch","limited_shades","low_coverage","oxidation","dry_cakey","creasing","hard_to_blend","texture","doesnt_last","packaging_quality","skin_reaction","poor_value","vague"];
+const shades=[
+ ["02 Sand Sable",202,"#d8b08a",[16,1,13,4,7,6,5,3,2,3,0,1,11]],["01 Warm Sand",137,"#c09068",[48,5,12,1,2,3,0,1,2,1,4,1,7]],
+ ["04 Medium Beige",117,"#d2a57c",[23,3,18,1,8,3,3,3,1,3,4,1,12]],["03 Light Moyen",107,"#e2bf98",[17,3,20,5,7,4,7,2,4,3,2,2,8]],
+ ["05 Medium Moyen",52,"#c99a70",[25,10,19,0,2,0,0,0,2,4,6,2,13]],["06 Clair Moyen",42,"#ecd0b4",[33,12,17,5,7,2,2,7,0,2,0,2,7]],
+ ["09 Orange",17,"#e0905a",[18,6,18,0,0,6,6,6,0,6,0,0,18]],["14 Warm Honey",12,"#b07a4c",[8,8,25,8,0,8,0,0,0,0,0,17,17]],
+ ["07 Yellow",8,"#e8c97a",[12,0,50,0,0,0,0,0,0,12,0,12,0]],["10 Porcelain",7,"#f3dcc6",[0,14,14,14,14,0,0,0,14,0,0,0,14]],
+ ["12 Natural",6,"#d9ae88",[0,0,17,17,33,17,0,0,0,17,0,0,0]],["13 Classic Nude",5,"#d6a98a",[0,0,20,0,0,0,0,0,20,0,0,0,0]],
+ ["11 Creamy Beige",3,"#e9cfaf",[0,0,0,0,0,0,0,0,0,33,0,0,0]]];
+const label=Object.fromEntries(themes.map(t=>[t[0],t[1]]));
+const pct=(a,b)=>(100*a/b).toFixed(1);
+const row=(lbl,sub,w,hi,v,vs)=>`<div class="r"><span class="lbl">${lbl}${sub?`<small>${sub}</small>`:""}</span><span class="track"><span class="fill${hi?" hi":""}" style="width:${w}%"></span></span><span class="val"><b>${v}</b>${vs?`<small>${vs}</small>`:""}</span></div>`;
+const press=(box,btn)=>box.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b===btn?"true":"false"));
+
+const famRows=document.getElementById("famRows");
+const drawFam=seg=>{const max=Math.max(...fam.map(f=>f.c[seg]/N[seg]));
+ famRows.innerHTML=fam.map((f,i)=>row(f.n,f.s,(f.c[seg]/N[seg])/max*100,i===0,pct(f.c[seg],N[seg])+"%",`${f.c[seg]} of ${N[seg]}`)).join("");};
+document.querySelector(".seg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;press(e.currentTarget,b);drawFam(b.dataset.seg);});
+drawFam("all");
+
+const sc=document.getElementById("shadeChips"),sr=document.getElementById("shadeRows"),sw=document.getElementById("shadeWarn");
+sc.innerHTML=shades.filter(s=>s[1]>=20).map((s,i)=>`<button type="button" data-i="${shades.indexOf(s)}" aria-pressed="${i===1}"><span class="sw" style="background:${s[2]}"></span>${s[0]}</button>`).join("")
+ +`<button type="button" data-more="1" aria-pressed="false">More shades</button>`;
+const drawShade=i=>{const s=shades[i];const items=cols.map((c,k)=>[label[c],s[3][k]]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
+ const max=Math.max(...items.map(x=>x[1]),1);
+ sw.textContent=s[1]<20?`Small sample: ${s[1]} reviews. One review moves these shares by ${Math.round(100/s[1])} points.`:`Based on ${s[1]} reviews of ${s[0]}.`;
+ sr.innerHTML=items.map((x,k)=>row(x[0],"",x[1]/max*100,k===0,x[1]+"%","")).join("")||`<p class="note">No complaint themes tagged.</p>`;};
+sc.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.more){b.remove();sc.insertAdjacentHTML("beforeend",shades.filter(s=>s[1]<20).map(s=>`<button type="button" data-i="${shades.indexOf(s)}" aria-pressed="false"><span class="sw" style="background:${s[2]}"></span>${s[0]}</button>`).join(""));return;}
+ press(sc,b);drawShade(+b.dataset.i);});
+drawShade(1);
+
+const tc=document.getElementById("themeChips"),tr=document.getElementById("themeRows");
+const picks=["shade_mismatch","limited_shades","low_coverage","dry_cakey","oxidation","creasing"];
+tc.innerHTML=picks.map((c,i)=>`<button type="button" data-c="${c}" aria-pressed="${i===0}">${label[c]}</button>`).join("");
+const drawTheme=c=>{const k=cols.indexOf(c);const items=shades.map(s=>[s[0],s[1],s[3][k],s[2]]).sort((a,b)=>(b[1]>=20)-(a[1]>=20)||b[2]-a[2]);
+ const max=Math.max(...items.map(x=>x[2]),1);const top=Math.max(...items.filter(x=>x[1]>=20).map(x=>x[2]));
+ tr.innerHTML=items.map(x=>row(`<span class="sw" style="display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;background:${x[3]}"></span>${x[0]}`,x[1]<20?`${x[1]} reviews · small sample`:`${x[1]} reviews`,x[2]/max*100,x[1]>=20&&x[2]===top,x[2]+"%","")).join("");};
+tc.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;press(tc,b);drawTheme(b.dataset.c);});
+drawTheme("shade_mismatch");
+
+const g=[["01 Warm Sand",137,48,"#c09068"],["06 Clair Moyen",42,33,"#ecd0b4"],["05 Medium Moyen",52,25,"#c99a70"],["04 Medium Beige",117,23,"#d2a57c"],["03 Light Moyen",107,17,"#e2bf98"],["02 Sand Sable",202,16,"#d8b08a"]];
+document.getElementById("glimpseRows").innerHTML=g.map((x,i)=>row(`<span class="sw" style="display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;background:${x[3]}"></span>${x[0]}`,`${x[1]} reviews`,x[2]/48*100,i===0,x[2]+"%","")).join("");
+
+const pages=[...document.querySelectorAll(".page")],nav=document.getElementById("stepNav"),pager=document.getElementById("pager");
+nav.innerHTML=pages.map((p,i)=>`<li><a href="#${p.id}" aria-label="Step ${i+1}: ${p.dataset.title}"><span>${i+1}</span><em>${p.dataset.title}</em></a></li>`).join("");
+const show=()=>{const id=(location.hash||"#overview").slice(1);let i=pages.findIndex(p=>p.id===id);if(i<0)i=0;
+ pages.forEach((p,k)=>p.hidden=k!==i);
+ nav.querySelectorAll("a").forEach((a,k)=>k===i?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+ const ca=nav.querySelectorAll("a")[i];nav.scrollLeft=ca.offsetLeft-(nav.clientWidth-ca.offsetWidth)/2;
+ document.getElementById("stepNow").textContent=`Step ${i+1} of ${pages.length} · ${pages[i].dataset.title}`;
+ const prev=pages[i-1],next=pages[i+1];
+ pager.innerHTML=(prev?`<a href="#${prev.id}">← ${prev.dataset.title}</a>`:"")+(next?`<a class="next" href="#${next.id}">Next: ${next.dataset.title} →</a>`:`<a class="next" href="#overview">Back to start</a>`);
+ window.scrollTo(0,0);};
+window.addEventListener("hashchange",show);show();
+window.addEventListener("load",()=>setTimeout(()=>window.scrollTo(0,0),0));
+
+const tmax=themes[0][2];
+document.getElementById("themeTable").innerHTML=themes.map(t=>`<tr><td>${t[1]}</td><td class="n">${t[2]}</td><td class="n">${pct(t[2],716)}%</td><td class="n">${t[3].toFixed(2)}</td><td><span class="mini" style="width:${t[2]/tmax*100}%"></span></td></tr>`).join("");
+document.getElementById("strTable").innerHTML=strengths.map(t=>`<tr><td>${t[0]}</td><td class="n">${t[1]}</td><td class="n">${pct(t[1],716)}%</td><td><span class="mini" style="width:${t[1]/tmax*100}%"></span></td></tr>`).join("");
+}
+</script>
+</body>
+</html>
