@@ -10,10 +10,10 @@
 /* VOICE work: an independent analyst's report, read one step at a time
    IDEA a guided walkthrough: six short pages, each with one finding, details opened on request
    PICTURE each page's chart: totals, problem bars by rating, theme table, shade glimpse, fix cards
-   COLOUR white and black like the brand's own site, one hot pink accent; dark theme is the same at night
+   COLOUR white and black like the brand's own site, one light blue accent; dark theme is the same at night
    TYPE Nunito Sans throughout, 800 for headings
    LAYOUT step bar at top, one page in view, previous and next at the foot; phone stacks everything */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#111111);--ink:light-dark(#111111,#f4f4f4);--soft:light-dark(#555555,#b5b5b5);--line:light-dark(#e6e6e6,#2e2e2e);--panel:light-dark(#fafafa,#1a1a1a);--pink:light-dark(#fc2679,#ff4f93);--pinkt:light-dark(#c2185b,#ff7aae);--wash:light-dark(#fff0f6,#2a1520);--bar:light-dark(#cfcfcf,#4a4a4a)}
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#111111);--ink:light-dark(#111111,#f4f4f4);--soft:light-dark(#555555,#b5b5b5);--line:light-dark(#e6e6e6,#2e2e2e);--panel:light-dark(#fafafa,#1a1a1a);--pink:light-dark(#7cc4f2,#6bb8ea);--pinkt:light-dark(#1769aa,#8fd0ff);--wash:light-dark(#eaf6fd,#0b2a40);--bar:light-dark(#cfcfcf,#4a4a4a)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:72px;scroll-behavior:smooth}
@@ -71,10 +71,10 @@ td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
 .mini{display:block;height:10px;border-radius:5px;background:var(--pink);min-width:2px}
 .plays{margin:0;padding-left:20px;display:grid;gap:8px}
 .reel,.academy{border-radius:16px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;min-height:100%}
-.reel{background:linear-gradient(165deg,#2a1520,#fc2679)}
+.reel{background:linear-gradient(165deg,#0b2a40,#1769aa)}
 .academy{background:#111}
 .reel-tag{align-self:flex-start;font-size:11px;font-weight:800;background:#fff;color:#111;border-radius:999px;padding:3px 9px}
-.reel-tag.dark{background:#fc2679;color:#fff}
+.reel-tag.dark{background:#7cc4f2;color:#0b2a40}
 .hook{font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.05}
 .hook2{font-size:14px;font-weight:700}
 .ba{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
@@ -86,7 +86,7 @@ td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
 .ac-t{font-size:clamp(20px,2.3vw,26px);font-weight:800;line-height:1.1}
 .ac-s{font-size:13px;color:#ccc}
 .kit{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center;margin-top:4px}
-.kit-box{height:76px;border-radius:10px;background:#fff0f6;display:flex;align-items:flex-end;justify-content:center;gap:5px;padding-bottom:10px}
+.kit-box{height:76px;border-radius:10px;background:#eaf6fd;display:flex;align-items:flex-end;justify-content:center;gap:5px;padding-bottom:10px}
 .tube-mini{width:12px;height:46px;border-radius:4px;background:linear-gradient(#111 0 30%,#d8b08a 30%)}
 .tube-mini.b{height:38px;background:linear-gradient(#111 0 30%,#c99a70 30%)}.tube-mini.c{height:42px;background:linear-gradient(#111 0 30%,#ecd0b4 30%)}
 .kit ul{margin:0;padding-left:16px;font-size:12px;display:grid;gap:4px}
@@ -104,10 +104,10 @@ td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
 .phone{max-width:320px;margin:0 auto;border:8px solid #111;border-radius:30px;background:#fff;color:#111;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
 .ph-top{height:20px;display:flex;justify-content:center;align-items:center}.ph-top span{width:60px;height:6px;border-radius:3px;background:#111}
 .ph-body{padding:6px 14px 16px;font-size:12px}
-.pd-hero{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;background:#fff0f6;border-radius:12px;padding:10px}
+.pd-hero{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;background:#eaf6fd;border-radius:12px;padding:10px}
 .tube{width:46px;height:auto}
 .pd-name{font-weight:800;font-size:14px;line-height:1.2}.pd-sub{color:#555;margin:2px 0 8px}
-.pd-btn{display:inline-block;background:#fc2679;color:#fff;font-weight:800;border-radius:999px;padding:6px 10px;font-size:11px}
+.pd-btn{display:inline-block;background:#7cc4f2;color:#0b2a40;font-weight:800;border-radius:999px;padding:6px 10px;font-size:11px}
 .pd-h{font-weight:800;margin:12px 0 6px;font-size:12px}
 .swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;text-align:center}
 .swatches i{display:block;width:30px;height:30px;border-radius:50%;margin:0 auto 3px;border:1px solid rgba(0,0,0,.1)}
@@ -119,12 +119,12 @@ td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
 .feed{border:1px solid var(--line);border-radius:14px;background:#fff;color:#111;padding:10px;font-size:12px;}
 .feed-head{display:flex;gap:8px;align-items:center;margin-bottom:8px}.feed-head small{display:block;color:#555;font-size:11px}
 .av{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-weight:800;font-size:12px;flex:none}
-.av-brand{background:#fc2679;color:#fff}.av-cr{background:#f3d9c0;color:#111;border:2px solid #fc2679}
+.av-brand{background:#7cc4f2;color:#0b2a40}.av-cr{background:#f3d9c0;color:#111;border:2px solid #7cc4f2}
 .paid{margin-left:auto;font-size:10px;font-weight:800;background:#f2f2f2;border-radius:999px;padding:3px 7px;white-space:nowrap}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
 .tile{aspect-ratio:4/5;border-radius:8px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font-size:clamp(10px,1.4vw,13px);line-height:1.2;overflow:hidden}
 .tile b{font-weight:800}
-.t1{background:#fff0f6;align-items:center;text-align:center}.t1 .tube{width:30%;margin:auto}
+.t1{background:#eaf6fd;align-items:center;text-align:center}.t1 .tube{width:30%;margin:auto}
 .t2{background:#111;color:#fff}.t2{justify-content:center}.t2 ol{margin:6px 0 0;padding-left:14px;font-size:clamp(9px,1.1vw,11px)}
 .t3{background:#f3d9c0;gap:3px}.t3 div{display:flex;align-items:center;gap:4px}.t3{justify-content:center}.t3 small{font-size:clamp(9px,1.1vw,11px);width:3.6em}.t3 i{flex:1;height:8px;border-radius:4px;background:#d8b08a}
 .feed-cap{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
@@ -186,7 +186,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .page{min-height:60vh}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
 .pager a{display:inline-flex;align-items:center;min-height:48px;padding:10px 20px;border-radius:999px;font-weight:800;text-decoration:none;border:1px solid var(--ink);color:var(--ink)}
-.pager a.next{background:var(--pink);border-color:var(--pink);color:#fff;margin-left:auto}
+.pager a.next{background:var(--pink);border-color:var(--pink);color:#0b2a40;margin-left:auto}
 .pager a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
 .big div{border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -308,7 +308,7 @@ details.more .inner{padding:0 20px 20px}
 <section class="page band" id="fixes" data-title="Fixes" hidden><div class="wrap">
 <p class="kicker">Step 6 · What the brand can do</p>
 <h1>Three fixes, cheapest first</h1>
-<p class="lead2">Each targets one problem family. The pink line on each card is the goal: the share of 1–3 star reviews that mention that problem today, and where it should fall in new reviews within two quarters. Effort levels and targets are my estimates.</p>
+<p class="lead2">Each targets one problem family. The blue line on each card is the goal: the share of 1–3 star reviews that mention that problem today, and where it should fall in new reviews within two quarters. Effort levels and targets are my estimates.</p>
 <div class="fixlist">
 <article class="fix">
 <div class="fix-txt">
