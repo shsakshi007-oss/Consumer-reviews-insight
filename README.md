@@ -2,7 +2,7 @@
 
 An independent study of 716 low-rated (1 to 3 star) Nykaa reviews, to find out what makes buyers unhappy and what the brand could fix.
 
-**Live site:** _link added after deployment_
+**Live site:** https://consumer-reviews-insight.vercel.app
 
 > Independent analysis. Not made by or affiliated with Swiss Beauty or Nykaa.
 
